@@ -24,7 +24,14 @@ class SpendingsController < ApplicationController
   # POST /spendings
   # POST /spendings.json
   def create
-    @spending = Spending.new(spending_params)
+    current_year = Time.current.year
+    current_month = Time.current.month
+    spending_month = { year: current_year, month: current_month }
+
+    @spending_month = SpendingMonth.where(spending_month).first
+    @spending_month ||= SpendingMonth.create(spending_month)
+
+    @spending = @spending_month.spendings.build(spending_params)
 
     respond_to do |format|
       if @spending.save
