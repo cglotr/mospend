@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light border-bottom justify-content-center">
+<div class="navbar navbar-light border-bottom justify-content-center" role="navigation">
   <button
     class="navbar-toggler collapsed border-0" type="button"
     data-toggle="collapse" data-target="#main-navbars"
@@ -8,16 +8,13 @@
   </button>
   <div id="main-navbars" class="navbar-collapse collapse">
     <ul class="navbar-nav text-center">
-      <li class="nav-item">
-        <%= link_to 'home', root_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <% if user_signed_in? %>
-          <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
-        <% else %>
-          <%= link_to 'sign in', new_user_session_path, class: "nav-link" %>
-        <% end %>
-      </li>
+      <%= render "layouts/nav_item", name: "home", link: root_path %>
+      <% if user_signed_in? %>
+        <%= render "layouts/nav_item", name: "monthly spendings", link: spending_months_path %>
+        <%= render "layouts/nav_item", name: "sign out", link: destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= render "layouts/nav_item", name: "sign in", link: new_user_session_path %>
+      <% end %>
     </ul>
   </div>
-</nav>
+</div>

@@ -1,2 +1,10 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+#create-new-spending {
+  bottom: 0;
+  font-size: 3rem;
+  left: 50%;
+  position: absolute;
+  transform: translatex(-50%)
+}
