@@ -3,10 +3,21 @@ $font-family-base: 'Tajawal', sans-serif;
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+$body-top-padding: 50px;
 $t-white: rgba(255, 255, 255, 0.97);
+
+html, body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   height: 200vh;
+  padding-top: $body-top-padding;
+}
+
+h1 {
+  font-size: 2rem;
 }
 
 #dashboard {
