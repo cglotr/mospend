@@ -6,6 +6,10 @@ $font-family-base: 'Tajawal', sans-serif;
 $body-top-padding: 50px;
 $t-white: rgba(255, 255, 255, 0.97);
 
+h1 {
+  font-size: 2rem;
+}
+
 html, body, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
@@ -16,10 +20,6 @@ body {
   padding-top: $body-top-padding;
 }
 
-h1 {
-  font-size: 2rem;
-}
-
 #dashboard {
   background: $t-white;
   font-size: 2rem;
@@ -27,6 +27,10 @@ h1 {
   .nav-link {
     padding: 0;
   }
+}
+
+#main-container {
+  max-width: 370px;
 }
 
 #top-navbar {

@@ -11,22 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :item %>
-    <%= form.text_field :item %>
-  </div>
+  <%= render "layouts/form_group", form: form, name: :item do %>
+    <%= render "layouts/form_text_field", form: form, name: :item %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :cost %>
-    <%= form.text_field :cost %>
-  </div>
+  <%= render "layouts/form_group", form: form, name: :cost do %>
+    <%= render "layouts/form_text_field", form: form, name: :cost %>
+  <% end %>
 
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
-  </div>
+  <%= render "layouts/form_group", form: form, name: :currency do %>
+    <%= render "layouts/form_text_field", form: form, name: :currency %>
+  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= render "layouts/center_flex_box" do %>
+    <%= render "layouts/form_submit", form: form, name: "Confirm" %>
+  <% end %>
 <% end %>

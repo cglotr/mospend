@@ -22,6 +22,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render "layouts/dashboard" %>
-    <%= yield %>
+    <div id="main-container" class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
