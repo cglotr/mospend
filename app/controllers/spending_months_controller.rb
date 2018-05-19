@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SpendingMonthsController < ApplicationController
   before_action :set_spending_month, only: [:show, :edit, :update, :destroy]
 
@@ -28,7 +30,7 @@ class SpendingMonthsController < ApplicationController
 
     respond_to do |format|
       if @spending_month.save
-        format.html { redirect_to @spending_month, notice: 'Spending month was successfully created.' }
+        format.html { redirect_to @spending_month, notice: "Spending month was successfully created." }
         format.json { render :show, status: :created, location: @spending_month }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class SpendingMonthsController < ApplicationController
   def update
     respond_to do |format|
       if @spending_month.update(spending_month_params)
-        format.html { redirect_to @spending_month, notice: 'Spending month was successfully updated.' }
+        format.html { redirect_to @spending_month, notice: "Spending month was successfully updated." }
         format.json { render :show, status: :ok, location: @spending_month }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class SpendingMonthsController < ApplicationController
   def destroy
     @spending_month.destroy
     respond_to do |format|
-      format.html { redirect_to spending_months_url, notice: 'Spending month was successfully destroyed.' }
+      format.html { redirect_to spending_months_url, notice: "Spending month was successfully destroyed." }
       format.json { head :no_content }
     end
   end
