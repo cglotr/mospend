@@ -9,3 +9,7 @@ Database creation
 Linting
 
 `bin/rails rubocop`
+
+Test
+
+`rspec`
