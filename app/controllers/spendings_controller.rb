@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SpendingsController < ApplicationController
   before_action :set_spending, only: [:show, :edit, :update, :destroy]
 
@@ -35,7 +37,7 @@ class SpendingsController < ApplicationController
 
     respond_to do |format|
       if @spending.save
-        format.html { redirect_to @spending, notice: 'Spending was successfully created.' }
+        format.html { redirect_to @spending, notice: "Spending was successfully created." }
         format.json { render :show, status: :created, location: @spending }
       else
         format.html { render :new }
@@ -49,7 +51,7 @@ class SpendingsController < ApplicationController
   def update
     respond_to do |format|
       if @spending.update(spending_params)
-        format.html { redirect_to @spending, notice: 'Spending was successfully updated.' }
+        format.html { redirect_to @spending, notice: "Spending was successfully updated." }
         format.json { render :show, status: :ok, location: @spending }
       else
         format.html { render :edit }
@@ -63,7 +65,7 @@ class SpendingsController < ApplicationController
   def destroy
     @spending.destroy
     respond_to do |format|
-      format.html { redirect_to spendings_url, notice: 'Spending was successfully destroyed.' }
+      format.html { redirect_to spendings_url, notice: "Spending was successfully destroyed." }
       format.json { head :no_content }
     end
   end
