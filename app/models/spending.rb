@@ -5,5 +5,9 @@ class Spending < ApplicationRecord
 
   validates :item, presence: true
   validates :cost, presence: true
-  validates :currency, presence: true
+  validates :currency_id, presence: true
+
+  def currency
+    Currency.find(self.currency_id)
+  end
 end

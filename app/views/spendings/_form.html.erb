@@ -19,8 +19,8 @@
     <%= render "layouts/form_text_field", form: form, name: :cost %>
   <% end %>
 
-  <%= render "layouts/form_group", form: form, name: :currency do %>
-    <%= render "layouts/form_text_field", form: form, name: :currency %>
+  <%= render "layouts/form_group", form: form, name: :currency_id, nice_name: "Currency" do %>
+    <%= form.select :currency_id, options_for_select(@currencies), {}, class: "custom-select" %>
   <% end %>
 
   <%= render "layouts/center_flex_box" do %>

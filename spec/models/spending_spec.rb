@@ -5,5 +5,5 @@ RSpec.describe Spending, type: :model do
 
   it { should validate_presence_of(:item) }
   it { should validate_presence_of(:cost) }
-  it { should validate_presence_of(:currency) }
+  it { should validate_presence_of(:currency_id) }
 end
