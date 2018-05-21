@@ -1,4 +1,8 @@
 <div class="d-flex flex-column form-group">
-  <%= form.label name, class: "m-0 text-center text-lowercase" %>
+  <% if local_assigns["nice_name"] %>
+    <%= form.label name, nice_name, class: "m-0 text-center text-lowercase" %>
+  <% else %>
+    <%= form.label name, class: "m-0 text-center text-lowercase" %>
+  <% end %>
   <%= yield %>
 </div>

@@ -17,6 +17,9 @@ class SpendingsController < ApplicationController
   # GET /spendings/new
   def new
     @spending = Spending.new
+    @currencies = Currency.all.map do |currency|
+      [currency.code, currency.id]
+    end
   end
 
   # GET /spendings/1/edit
@@ -32,7 +35,6 @@ class SpendingsController < ApplicationController
 
     @spending_month = SpendingMonth.where(spending_month).first
     @spending_month ||= SpendingMonth.create(spending_month)
-
     @spending = @spending_month.spendings.build(spending_params)
 
     respond_to do |format|
@@ -78,6 +80,6 @@ class SpendingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spending_params
-      params.require(:spending).permit(:item, :cost, :currency)
+      params.require(:spending).permit(:item, :cost, :currency_id)
     end
 end

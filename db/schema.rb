@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_15_151354) do
+ActiveRecord::Schema.define(version: 2018_05_20_214610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "currencies", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "spending_months", force: :cascade do |t|
     t.integer "year"
@@ -25,10 +31,11 @@ ActiveRecord::Schema.define(version: 2018_05_15_151354) do
   create_table "spendings", force: :cascade do |t|
     t.string "item"
     t.decimal "cost"
-    t.string "currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "spending_month_id"
+    t.bigint "currency_id"
+    t.index ["currency_id"], name: "index_spendings_on_currency_id"
     t.index ["spending_month_id"], name: "index_spendings_on_spending_month_id"
   end
 
@@ -49,5 +56,6 @@ ActiveRecord::Schema.define(version: 2018_05_15_151354) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "spendings", "currencies"
   add_foreign_key "spendings", "spending_months"
 end
