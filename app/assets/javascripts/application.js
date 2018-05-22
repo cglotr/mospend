@@ -17,3 +17,13 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function() {
+  $("input").blur(function() {
+    $("#dashboard").show();
+  });
+
+  $("input").focus(function() {
+    $("#dashboard").hide();
+  });
+});
