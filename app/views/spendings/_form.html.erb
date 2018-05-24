@@ -1,4 +1,4 @@
-<%= form_with(model: spending, local: true) do |form| %>
+<%= form_with(model: spending, local: true, class: "w-90") do |form| %>
   <% if spending.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(spending.errors.count, "error") %> prohibited this spending from being saved:</h2>
