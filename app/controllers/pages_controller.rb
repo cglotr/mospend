@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    redirect_to action: "hello" unless user_signed_in?
+    return redirect_to action: "hello" unless user_signed_in?
 
     @spending_months = current_user.spending_months.includes(spendings: [:currency])
 
