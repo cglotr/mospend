@@ -1,1 +1,14 @@
-<h1>pages#home</h1>
+<div class="d-flex flex-column w-100">
+  <% @spending_months.each do |s_month| %>
+    <div class="card my-3 text-center">
+      <div class="card-header">
+        <%= s_month[:year] %> - <%= s_month[:month] %>
+      </div>
+      <ul class="list-group list-group-flush text-center">
+        <% s_month[:spending_currency_groups].each do |currency, sum| %>
+          <li class="list-group-item"><%= number_to_currency(sum, format: "%u %n", unit: currency) %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
