@@ -19,11 +19,21 @@
 //= require_tree .
 
 $(document).ready(function() {
+  let show = true;
+
   $("input").blur(function() {
-    $("#dashboard").show();
+    if (!show) {
+      console.log("dashboard - show");
+      $("#dashboard").show();
+      show = true;
+    }
   });
 
   $("input").focus(function() {
-    $("#dashboard").hide();
+    if (show) {
+      console.log("dashboard - hide");
+      $("#dashboard").hide();
+      show = false;
+    }
   });
 });
