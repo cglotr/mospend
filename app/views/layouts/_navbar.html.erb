@@ -1,19 +1,24 @@
-<div id="top-navbar" class="navbar navbar-light fixed-top border-bottom justify-content-center py-1" role="navigation">
+<div
+  id="top-navbar"
+  class="border-bottom fixed-top justify-content-center navbar navbar-light py-1"
+  role="navigation">
+
   <button
-    class="navbar-toggler collapsed border-0" type="button"
+    class="border-0 collapsed navbar-toggler" type="button"
     data-toggle="collapse" data-target="#main-navbars"
-    aria-controls="main-navbars" aria-expanded="false" aria-label="toggle navigation"
-  >
-    <span class="navbar-brand mx-0 pt-2">mospend</span>
+    aria-controls="main-navbars" aria-expanded="false" aria-label="toggle navigation">
+
+    <span class="navbar-brand mx-0 pt-2"><%= yield(:heading).downcase %></span>
   </button>
   <div id="main-navbars" class="navbar-collapse collapse">
     <ul class="navbar-nav text-center">
-      <%= render "layouts/nav_item", name: "home", link: root_path %>
       <% if user_signed_in? %>
-        <%= render "layouts/nav_item", name: "monthly spendings", link: spending_months_path %>
-        <%= render "layouts/nav_item", name: "sign out", link: destroy_user_session_path, method: :delete %>
+        <%= render "layouts/nav_item", name: "home", link: root_path %>
+        <%= render "layouts/nav_item", name: "logout", link: destroy_user_session_path,
+          method: :delete %>
       <% else %>
-        <%= render "layouts/nav_item", name: "sign in", link: new_user_session_path %>
+        <%= render "layouts/nav_item", name: "hello", link: root_path %>
+        <%= render "layouts/nav_item", name: "login", link: new_user_session_path %>
       <% end %>
     </ul>
   </div>
