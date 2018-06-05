@@ -18,6 +18,8 @@
           method: :delete %>
       <% else %>
         <%= render "layouts/nav_item", name: "login", link: new_user_session_path %>
+        <%= render "layouts/nav_item", name: "signup", link: new_user_registration_path %>
+        <%= render "layouts/nav_item", name: "password recovery", link: new_user_password_path %>
       <% end %>
     </ul>
   </div>
