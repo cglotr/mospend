@@ -3,27 +3,21 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= render "layouts/form_group", form: f, name: :email do %>
+    <%= f.email_field :email,
+      autofocus: true, autocomplete: "email", class: "form-control text-center" %>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <%= render "layouts/form_group", form: f, name: :password do %>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control text-center" %>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  <%= render "layouts/form_group", form: f, name: :password_confirmation do %>
+    <%= f.password_field :password_confirmation,
+      autocomplete: "off", class: "form-control text-center" %>
+  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <%= render "layouts/center_flex_box" do %>
+    <%= render "layouts/form_submit", form: f, name: "Confirm" %>
+  <% end %>
 <% end %>
-
-<%= render "devise/shared/links" %>
