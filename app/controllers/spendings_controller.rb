@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class SpendingsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :set_spending, only: [:show, :edit, :update, :destroy]
 
   # GET /spendings
@@ -27,24 +28,19 @@ class SpendingsController < ApplicationController
   end
 
   # POST /spendings
-  # POST /spendings.json
   def create
     current_year = Time.current.year
     current_month = Time.current.month
     spending_month = { year: current_year, month: current_month }
 
-    @spending_month = SpendingMonth.where(spending_month).first
-    @spending_month ||= SpendingMonth.create(spending_month)
-    @spending = @spending_month.spendings.build(spending_params)
+    spending_month = current_user.spending_months.find_by(spending_month)
+    spending_month ||= current_user.spending_months.create(spending_month)
+    @spending = spending_month.spendings.build(spending_params)
 
-    respond_to do |format|
-      if @spending.save
-        format.html { redirect_to @spending, notice: "Spending was successfully created." }
-        format.json { render :show, status: :created, location: @spending }
-      else
-        format.html { render :new }
-        format.json { render json: @spending.errors, status: :unprocessable_entity }
-      end
+    if @spending.save
+      redirect_to root_path, notice: "Spending was successfully created."
+    else
+      render :new
     end
   end
 
