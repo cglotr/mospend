@@ -17,10 +17,14 @@ currency_codes.each do |code|
   Currency.create!(code: code)
 end
 
-(1..12).each do |month|
-  spending_month = user.spending_months.create!(month: month, year: 2018)
+(2015..2018).each do |year|
+  (1..12).each do |month|
+    spending_month = user.spending_months.create!(month: month, year: year)
 
-  5.times do
-    spending_month.spendings.create!(cost: 100, currency: Currency.first, item: "item")
+    (1..5).each do |x|
+      spending_month.spendings.create!(cost: (x * 10), currency: Currency.first, item: "item #{x}")
+      spending_month.spendings.create!(cost: (x * 10), currency: Currency.second, item: "item #{x}")
+      spending_month.spendings.create!(cost: (x * 10), currency: Currency.third, item: "item #{x}")
+    end
   end
 end
