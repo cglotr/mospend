@@ -24,5 +24,7 @@ class PagesController < ApplicationController
         spending_currency_groups: spending_currency_groups,
       }
     end
+
+    @spending_months.sort! { |a, b| [b[:year], b[:month]] <=> [a[:year], a[:month]] }
   end
 end
