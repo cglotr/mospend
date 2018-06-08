@@ -31,10 +31,10 @@ class SpendingsController < ApplicationController
   def create
     current_year = Time.current.year
     current_month = Time.current.month
-    spending_month = { year: current_year, month: current_month }
+    spending_month_params = { year: current_year, month: current_month }
 
-    spending_month = current_user.spending_months.find_by(spending_month)
-    spending_month ||= current_user.spending_months.create(spending_month)
+    spending_month = current_user.spending_months.find_by(spending_month_params)
+    spending_month ||= current_user.spending_months.create(spending_month_params)
     @spending = spending_month.spendings.build(spending_params)
 
     if @spending.save
