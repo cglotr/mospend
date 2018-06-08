@@ -9,10 +9,12 @@
           <%= number_to_currency(spending.cost, format: "%u %n", unit: spending.currency.code) %>
         </p>
         <p><%= spending.created_at.strftime("%d %a %H:%M %Z") %></p>
-        <p>
-          <%= button_to "delete", spending_path(spending),
-            class: "btn btn-link", method: :delete %>
-        </p>
+        <% if spending.created_at > 1.hour.ago %>
+          <p>
+            <%= button_to "delete", spending_path(spending), class: "btn btn-link",
+              method: :delete %>
+          </p>
+        <% end %>
       </li>
     <% end %>
   </ul>
