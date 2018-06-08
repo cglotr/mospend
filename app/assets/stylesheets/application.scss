@@ -20,6 +20,10 @@ body {
   padding-top: $body-top-padding;
 }
 
+.list-group-item:first-child {
+  border-top: 0;
+}
+
 #dashboard {
   background: $t-white;
   font-size: 2rem;

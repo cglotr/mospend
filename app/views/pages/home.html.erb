@@ -1,14 +1,15 @@
-<div class="d-flex flex-column w-100">
+<%= render 'layouts/flex_column' do %>
   <% @spending_months.each do |s_month| %>
-    <div class="card my-3 text-center">
-      <div class="card-header">
-        <%= s_month[:year] %> - <%= s_month[:month] %>
-      </div>
-      <ul class="list-group list-group-flush text-center">
+      <%= link_to spending_month_path(s_month[:id]), class: "btn btn-link" do %>
+        <p><%= s_month[:year] %> - <%= s_month[:month] %></p>
+      <% end %>
+      <ul class="list-group list-group-flush">
         <% s_month[:spending_currency_groups].each do |currency, sum| %>
-          <li class="list-group-item"><%= number_to_currency(sum, format: "%u %n", unit: currency) %></li>
+          <li class="list-group-item">
+            <p><%= number_to_currency(sum, format: "%u %n", unit: currency) %></p>
+          </li>
         <% end %>
       </ul>
     </div>
   <% end %>
-</div>
+<% end %>

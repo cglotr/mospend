@@ -59,13 +59,9 @@ class SpendingsController < ApplicationController
   end
 
   # DELETE /spendings/1
-  # DELETE /spendings/1.json
   def destroy
     @spending.destroy
-    respond_to do |format|
-      format.html { redirect_to spendings_url, notice: "Spending was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_back(fallback_location: root_path)
   end
 
   private

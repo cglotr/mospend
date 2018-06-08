@@ -10,8 +10,8 @@ class SpendingMonthsController < ApplicationController
   end
 
   # GET /spending_months/1
-  # GET /spending_months/1.json
   def show
+    @spendings = @spending_month.spendings
   end
 
   # GET /spending_months/new

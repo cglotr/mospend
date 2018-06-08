@@ -19,6 +19,7 @@ class PagesController < ApplicationController
       spending_currency_groups.sort_by { |currency, sum| currency }
 
       {
+        id: s_month.id,
         month: s_month.month,
         year: s_month.year,
         spending_currency_groups: spending_currency_groups,

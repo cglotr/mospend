@@ -1,4 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% provide(:heading, "#{@spending_month.year} - #{@spending_month.month}") %>
 
-<%= link_to 'Edit', edit_spending_month_path(@spending_month) %> |
-<%= link_to 'Back', spending_months_path %>
+<%= render 'layouts/flex_column' do %>
+  <ul class="list-group list-group-flush">
+    <% @spendings.each do |spending| %>
+      <li class="list-group-item">
+        <p><%= spending.item %></p>
+        <p>
+          <%= number_to_currency(spending.cost, format: "%u %n", unit: spending.currency.code) %>
+        </p>
+        <p><%= spending.created_at.strftime("%d %a %H:%M %Z") %></p>
+        <p>
+          <%= button_to "delete", spending_path(spending),
+            class: "btn btn-link", method: :delete %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
