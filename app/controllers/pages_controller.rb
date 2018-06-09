@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
+  def not_found
+  end
+
   def hello
   end
 
