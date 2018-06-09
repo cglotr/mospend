@@ -1,11 +1,8 @@
 <% provide(:heading, "Password Recovery") %>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
   <%= render "layouts/form_group", form: f, name: :email do %>
-    <%= f.email_field :email,
-      autofocus: true, autocomplete: "email", class: "form-control text-center" %>
+    <%= render "layouts/form_email_field", form: f, name: :email %>
   <% end %>
 
   <%= render "layouts/center_flex_box" do %>

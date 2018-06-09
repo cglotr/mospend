@@ -2,12 +2,11 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "layouts/form_group", form: f, name: :email do %>
-    <%= f.email_field :email,
-      autofocus: true, autocomplete: "email", class: "form-control text-center" %>
+    <%= render 'layouts/form_email_field', form: f, name: :email %>
   <% end %>
 
   <%= render "layouts/form_group", form: f, name: :password do %>
-    <%= f.password_field :password, autocomplete: "off", class: "form-control text-center" %>
+    <%= render "layouts/form_password_field", form: f, name: :password %>
   <% end %>
 
   <% if devise_mapping.rememberable? -%>

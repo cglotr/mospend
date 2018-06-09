@@ -4,17 +4,15 @@
   <%= devise_error_messages! %>
 
   <%= render "layouts/form_group", form: f, name: :email do %>
-    <%= f.email_field :email,
-      autofocus: true, autocomplete: "email", class: "form-control text-center" %>
+    <%= render "layouts/form_email_field", form: f, name: :email %>
   <% end %>
 
   <%= render "layouts/form_group", form: f, name: :password do %>
-    <%= f.password_field :password, autocomplete: "off", class: "form-control text-center" %>
+    <%= render "layouts/form_password_field", form: f, name: :password %>
   <% end %>
 
-  <%= render "layouts/form_group", form: f, name: :password_confirmation do %>
-    <%= f.password_field :password_confirmation,
-      autocomplete: "off", class: "form-control text-center" %>
+  <%= render "layouts/form_group", form: f, name: "Confirm password" do %>
+    <%= render "layouts/form_password_field", form: f, name: :password_confirmation %>
   <% end %>
 
   <%= render "layouts/center_flex_box" do %>
