@@ -1,9 +1,11 @@
 <% provide(:heading, "#{@spending_month.year} - #{@spending_month.month}") %>
 
+<%= link_to "back", root_path, class: "btn btn-link" %>
+
 <%= render 'layouts/flex_column' do %>
-  <ul class="list-group list-group-flush">
+  <ul class="list-group">
     <% @spendings.each do |spending| %>
-      <li class="list-group-item">
+      <li class="border-0 list-group-item">
         <p><%= spending.item %></p>
         <p>
           <%= number_to_currency(spending.cost, format: "%u %n", unit: spending.currency.code) %>

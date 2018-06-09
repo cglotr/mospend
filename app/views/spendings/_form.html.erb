@@ -20,7 +20,8 @@
   <% end %>
 
   <%= render "layouts/form_group", form: form, name: :currency_id, nice_name: "Currency" do %>
-    <%= form.select :currency_id, options_for_select(@currencies), {}, class: "custom-select" %>
+    <%= form.select :currency_id, options_for_select(@currencies), {},
+      class: "bg-light border-0 custom-select" %>
   <% end %>
 
   <%= render "layouts/center_flex_box" do %>
