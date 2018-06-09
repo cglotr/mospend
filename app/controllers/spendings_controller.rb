@@ -17,10 +17,8 @@ class SpendingsController < ApplicationController
 
   # GET /spendings/new
   def new
+    init_new
     @spending = Spending.new
-    @currencies = Currency.all.map do |currency|
-      [currency.code, currency.id]
-    end
   end
 
   # GET /spendings/1/edit
@@ -40,6 +38,7 @@ class SpendingsController < ApplicationController
     if @spending.save
       redirect_to root_path, notice: "Spending was successfully created."
     else
+      init_new
       render :new
     end
   end
@@ -65,12 +64,16 @@ class SpendingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def init_new
+      @currencies = Currency.all.map do |currency|
+        [currency.code, currency.id]
+      end
+    end
+
     def set_spending
       @spending = Spending.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def spending_params
       params.require(:spending).permit(:item, :cost, :currency_id)
     end

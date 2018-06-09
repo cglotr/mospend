@@ -17,3 +17,7 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).click(function(e) {
+  $("#flash").alert("close");
+});

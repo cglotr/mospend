@@ -1,2 +1,3 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% unless flash.empty? %>
+  <%= render 'layouts/flash_alert', alerts: flash.map { |type, msg| msg } %>
+<% end %>

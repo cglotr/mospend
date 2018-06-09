@@ -1,0 +1,9 @@
+<div id="flash" class="alert border-0 d-flex flex-column justify-content-center m-0 px-3 py-0">
+  <ul class="list-group">
+    <% alerts.each do |msg| %>
+      <li class="border-0 list-group-item">
+        <%= content_tag :p, msg.downcase.tr('.', ''), class: "text-center" %>
+      </li>
+    <% end %>
+  </ul>
+</div>

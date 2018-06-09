@@ -1,14 +1,6 @@
 <%= form_with(model: spending, local: true, class: "w-90") do |form| %>
   <% if spending.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(spending.errors.count, "error") %> prohibited this spending from being saved:</h2>
-
-      <ul>
-      <% spending.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <%= render "layouts/flash_alert", alerts: spending.errors.full_messages  %>
   <% end %>
 
   <%= render "layouts/form_group", form: form, name: :item do %>
