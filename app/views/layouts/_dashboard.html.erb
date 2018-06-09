@@ -1,9 +1,11 @@
-<div id="dashboard" class="border-top fixed-bottom justify-content-center navbar navbar-light py-0">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <%= link_to new_spending_path, class: "nav-link d-flex align-items-center" do %>
-        <i class="far fa-plus-square py-2"></i>
-      <% end %>
-    </li>
-  </ul>
-</div>
+<% unless yield(:dashboard) == "hide" %>
+  <div id="dashboard" class="border-top fixed-bottom justify-content-center navbar navbar-light py-0">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <%= link_to new_spending_path, class: "nav-link d-flex align-items-center" do %>
+          <i class="far fa-plus-square py-2"></i>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+<% end %>
