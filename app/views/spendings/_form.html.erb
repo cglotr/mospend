@@ -1,4 +1,4 @@
-<%= form_with(model: spending, local: true, class: "w-90") do |form| %>
+<%= form_with(model: spending, local: true) do |form| %>
   <% if spending.errors.any? %>
     <%= render "layouts/flash_alert", alerts: spending.errors.full_messages  %>
   <% end %>

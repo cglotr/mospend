@@ -1,28 +1,13 @@
 # frozen_string_literal: true
 
 class SpendingsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_spending, only: [:show, :edit, :update, :destroy]
-
-  # GET /spendings
-  # GET /spendings.json
-  def index
-    @spendings = Spending.all
-  end
-
-  # GET /spendings/1
-  # GET /spendings/1.json
-  def show
-  end
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :set_spending, only: [:destroy]
 
   # GET /spendings/new
   def new
     init_new
     @spending = Spending.new
-  end
-
-  # GET /spendings/1/edit
-  def edit
   end
 
   # POST /spendings
@@ -40,20 +25,6 @@ class SpendingsController < ApplicationController
     else
       init_new
       render :new
-    end
-  end
-
-  # PATCH/PUT /spendings/1
-  # PATCH/PUT /spendings/1.json
-  def update
-    respond_to do |format|
-      if @spending.update(spending_params)
-        format.html { redirect_to @spending, notice: "Spending was successfully updated." }
-        format.json { render :show, status: :ok, location: @spending }
-      else
-        format.html { render :edit }
-        format.json { render json: @spending.errors, status: :unprocessable_entity }
-      end
     end
   end
 
