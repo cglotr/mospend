@@ -65,7 +65,14 @@ class SpendingsController < ApplicationController
 
   private
     def init_new
-      @last_currency_id = current_user.spending_months.last.spendings.last.currency.id
+      last_spending_month = current_user.spending_months.last
+
+      if last_spending_month && last_spending_month.spendings.last
+        @last_currency_id = last_spending_month.spendings.last.currency.id
+      else
+        @last_currency_id = Currency.first.id
+      end
+
       @currencies = Currency.all.map do |currency|
         [currency.code, currency.id]
       end
