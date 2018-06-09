@@ -1,4 +1,5 @@
 <% provide(:heading, "Password Recovery") %>
+<% provide(:dashboard, "hide") %>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "layouts/form_group", form: f, name: :email do %>
