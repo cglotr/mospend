@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
     @spending_months = current_user.spending_months.includes(spendings: [:currency])
 
-    @spending_months = @spending_months.map do |s_month|
+    @s_months = @spending_months.map do |s_month|
       spending_currency_groups = Hash.new 0
 
       s_month.spendings.each do |spending|
@@ -29,6 +29,6 @@ class PagesController < ApplicationController
       }
     end
 
-    @spending_months.sort! { |a, b| [b[:year], b[:month]] <=> [a[:year], a[:month]] }
+    @s_months.sort! { |a, b| [b[:year], b[:month]] <=> [a[:year], a[:month]] }
   end
 end
