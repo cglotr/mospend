@@ -1,25 +1,24 @@
-<div
-  id="top-navbar"
-  class="border-bottom fixed-top justify-content-center navbar navbar-light py-1"
-  role="navigation">
+<div class="border-bottom fixed-top justify-content-center navbar navbar-light py-1"
+  id="top-navbar" role="navigation">
 
-  <button
-    class="border-0 collapsed navbar-toggler" type="button"
-    data-toggle="collapse" data-target="#main-navbars"
-    aria-controls="main-navbars" aria-expanded="false" aria-label="toggle navigation">
+  <button aria-controls="main-navbars" aria-expanded="false" aria-label="toggle navigation"
+    class="border-0 collapsed navbar-toggler" data-target="#main-navbars" data-toggle="collapse"
+    type="button">
 
-    <span class="navbar-brand mx-0 pt-2"><%= heading yield(:heading) %></span>
+    <span class="mx-0 navbar-brand pt-2"><%= heading yield(:heading) %></span>
   </button>
-  <div id="main-navbars" class="navbar-collapse collapse">
+  <div class="navbar-collapse collapse" id="main-navbars">
     <ul class="navbar-nav text-center">
-      <%= render "layouts/nav_item", name: "mospend", link: root_path %>
       <% if user_signed_in? %>
-        <%= render "layouts/nav_item", name: "logout", link: destroy_user_session_path,
-          method: :delete %>
+        <%= render "layouts/nav_item", link: root_path,
+          name: "#{email_name(current_user.email)}'s home" %>
+        <%= render "layouts/nav_item", link: destroy_user_session_path, method: :delete,
+          name: "logout" %>
       <% else %>
-        <%= render "layouts/nav_item", name: "login", link: new_user_session_path %>
-        <%= render "layouts/nav_item", name: "signup", link: new_user_registration_path %>
-        <%= render "layouts/nav_item", name: "password recovery", link: new_user_password_path %>
+        <%= render "layouts/nav_item", link: root_path, name: "welcome" %>
+        <%= render "layouts/nav_item", link: new_user_session_path, name: "login" %>
+        <%= render "layouts/nav_item", link: new_user_registration_path, name: "signup" %>
+        <%= render "layouts/nav_item", link: new_user_password_path, name: "password recovery" %>
       <% end %>
     </ul>
   </div>
