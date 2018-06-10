@@ -1,4 +1,9 @@
 <%= render 'layouts/flex_column' do %>
+  <% if @s_months.empty? %>
+    <p class="mt-4">
+      click the <i class="far fa-plus-square"></i> button on the dashboard below to get started
+    </p>
+  <% end %>
   <ul class="list-group">
     <% @s_months.each do |s_month| %>
       <li class="border-0 list-group-item">
