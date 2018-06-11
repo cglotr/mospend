@@ -4,6 +4,10 @@ class Spending < ApplicationRecord
   belongs_to :currency
   belongs_to :spending_month
 
-  validates :item, presence: true
-  validates :cost, presence: true
+  validates :cost, numericality: true, presence: true
+  validates :created_at, presence: true
+  validates :currency_id, presence: true
+  validates :item, length: { minimum: 1 }, presence: true
+  validates :spending_month_id, presence: true
+  validates :updated_at, presence: true
 end
