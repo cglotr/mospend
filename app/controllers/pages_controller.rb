@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def hello
+    return redirect_to action: :home if user_signed_in?
   end
 
   def home
