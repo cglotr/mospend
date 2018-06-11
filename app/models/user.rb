@@ -8,8 +8,6 @@ class User < ApplicationRecord
 
   has_many :spending_months
 
-  validates :created_at, presence: true
   validates :email, presence: true
   validates :encrypted_password, presence: true
-  validates :updated_at, presence: true
 end
