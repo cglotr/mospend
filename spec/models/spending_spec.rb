@@ -14,9 +14,7 @@ RSpec.describe Spending, type: :model do
   it { should validate_numericality_of :cost }
 
   it { should validate_presence_of(:cost) }
-  it { should validate_presence_of(:created_at) }
   it { should validate_presence_of(:currency_id) }
   it { should validate_presence_of(:item) }
   it { should validate_presence_of(:spending_month_id) }
-  it { should validate_presence_of(:updated_at) }
 end
