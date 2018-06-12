@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     post "password", to: "devise/passwords#create", as: :user_password
     post "signup", to: "devise/registrations#create", as: :user_registration
 
+    put "password", to: "devise/passwords#update"
+
     delete "logout", to: "devise/sessions#destroy", as: :destroy_user_session
   end
 
