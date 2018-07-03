@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe "Routing" do
   it { should route(:get, "/").to controller: "pages", action: :home }
   it { should route(:get, "/hello").to controller: "pages", action: :hello }

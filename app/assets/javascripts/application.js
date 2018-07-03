@@ -21,3 +21,4 @@
 $(document).click(function(e) {
   $("#flash").alert("close");
 });
+//= require serviceworker-companion

@@ -38,6 +38,7 @@ gem "bootstrap", "~> 4.1.1"
 gem "sprockets-rails", "~> 3.0", ">= 3.0.4"
 gem "jquery-rails", "~> 4.3", ">= 4.3.1"
 gem "rubocop-rails", "~> 1.4"
+gem "serviceworker-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
