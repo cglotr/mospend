@@ -4,13 +4,16 @@
   "short_name": "mospend",
   "start_url": "/",
   "icons": [
-  <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
-      "src": "<%= image_path "serviceworker-rails/heart-#{dim}.png" %>",
-      "sizes": "<%= dim %>",
-      "type": "image/png"
-    }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
-  <% end %>
+      "src": "<%= path_to_image "mospend-192.png" %>",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "<%= path_to_image "mospend-512.png" %>",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
   ],
   "theme_color": "#000000",
   "background_color": "#FFFFFF",
