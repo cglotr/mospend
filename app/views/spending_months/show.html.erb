@@ -10,7 +10,7 @@
         <ul class="list-group">
           <% spendings.each do |spending| %>
             <li class="border-0 list-group-item">
-              <p><%= spending.item %></p>
+              <p><b><%= spending.item %></b></p>
               <p>
                 <%= number_to_currency(spending.cost, format: "%u %n", unit: spending.currency.code) %>
               </p>
