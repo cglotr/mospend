@@ -3,20 +3,27 @@
 <%= link_to "back", root_path, class: "btn btn-link" %>
 
 <%= render 'layouts/flex_column' do %>
-  <ul class="list-group">
-    <% @spendings.each do |spending| %>
-      <li class="border-0 list-group-item">
-        <p><%= spending.item %></p>
-        <p>
-          <%= number_to_currency(spending.cost, format: "%u %n", unit: spending.currency.code) %>
-        </p>
-        <p><%= spending.created_at.strftime("%d %a %H:%M %Z") %></p>
-        <% if spending.created_at > 1.hour.ago %>
-          <p>
-            <%= button_to "delete", spending_path(spending), class: "btn btn-link",
-              method: :delete %>
-          </p>
-        <% end %>
+  <ul class="list-group list-group-flush">
+    <% @spendings.each do |day, spendings| %>
+      <li class="list-group-item">
+        <p><u><%= spendings.first.created_at.strftime("%d - %A") %></u></p>
+        <ul class="list-group">
+          <% spendings.each do |spending| %>
+            <li class="border-0 list-group-item">
+              <p><%= spending.item %></p>
+              <p>
+                <%= number_to_currency(spending.cost, format: "%u %n", unit: spending.currency.code) %>
+              </p>
+              <p><%= spending.created_at.strftime("%d %a %H:%M %Z") %></p>
+              <% if spending.created_at > 1.hour.ago %>
+                <p>
+                  <%= button_to "delete", spending_path(spending), class: "btn btn-link",
+                    method: :delete %>
+                </p>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
       </li>
     <% end %>
   </ul>

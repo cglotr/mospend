@@ -6,7 +6,14 @@ class SpendingMonthsController < ApplicationController
 
   # GET /spending_months/1
   def show
-    @spendings = @spending_month.spendings
+    @spendings = {}
+    @spending_month.spendings.each do |spending|
+      day = spending.created_at.day
+      unless @spendings.key? day
+        @spendings[day] = []
+      end
+      @spendings[day] << spending
+    end
     @heading = "#{@spending_month.year} - #{@spending_month.month}"
   end
 
