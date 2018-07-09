@@ -1,6 +1,8 @@
 <% provide(:heading, "Login") %>
 <% provide(:dashboard, "hide") %>
 
+<%= link_to "back", root_path, class: "btn btn-link" %>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "layouts/form_group", form: f, name: :email do %>
     <%= render 'layouts/form_email_field', form: f, name: :email %>

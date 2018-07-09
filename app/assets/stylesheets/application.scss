@@ -4,10 +4,24 @@ $font-family-base: 'Roboto Mono', monospace;
 @import "bootstrap";
 
 $body-top-padding: 50px;
-$t-white: rgba(255, 255, 255, 0.97);
+$charmander-dark: #e9ab7c;
+$charmander-light: #f5e5ca;
+$opacity: 0.85;
+
+%bgc-char-dark {
+  background-color: rgba($charmander-dark, $opacity);
+}
 
 h1 {
   font-size: 2rem;
+}
+
+body, html {
+  background-color: $charmander-light;
+}
+
+div, li, li, p, ul {
+  background-color: transparent;
 }
 
 html, body, h1, h2, h3, h4, h5, h6, p {
@@ -20,8 +34,16 @@ body {
   padding-top: $body-top-padding;
 }
 
+.jumbotron {
+  background-color: transparent;
+}
+
+.list-group-item {
+  background-color: transparent;
+}
+
 #dashboard {
-  background: $t-white;
+  background-color: rgba($charmander-dark, $opacity);
   font-size: 2rem;
 
   .nav-link {
@@ -30,7 +52,7 @@ body {
 }
 
 #flash {
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba($charmander-light, $opacity);
   height: 100%;
   left: 50%;
   position: absolute;
@@ -49,7 +71,7 @@ body {
 }
 
 #top-navbar {
-  background: $t-white;
+  background: rgba($charmander-dark, $opacity);
 
   > button:focus {
     outline: 0;

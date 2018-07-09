@@ -4,9 +4,9 @@
       click the <i class="far fa-plus-square"></i> button on the dashboard below to get started
     </p>
   <% end %>
-  <ul class="list-group">
+  <ul class="list-group list-group-flush">
     <% @s_months.each do |s_month| %>
-      <li class="border-0 list-group-item">
+      <li class="list-group-item">
         <%= link_to spending_month_path(s_month[:id]), class: "btn btn-link" do %>
           <p><%= s_month[:year] %> - <%= s_month[:month] %></p>
         <% end %>

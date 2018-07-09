@@ -1,6 +1,8 @@
 <% provide(:heading, "Change Password") %>
 <% provide(:dashboard, "hide") %>
 
+<%= link_to "back", root_path, class: "btn btn-link" %>
+
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>

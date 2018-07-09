@@ -1,6 +1,8 @@
 <% provide(:heading, "Signup") %>
 <% provide(:dashboard, "hide") %>
 
+<%= link_to "back", root_path, class: "btn btn-link" %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
