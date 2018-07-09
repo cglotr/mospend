@@ -6,7 +6,7 @@
   <ul class="list-group list-group-flush">
     <% @spendings.each do |day, spendings| %>
       <li class="list-group-item">
-        <p><u><%= spendings.first.created_at.strftime("%d - %A") %></u></p>
+        <p><%= spendings.first.created_at.strftime("%d - %A") %></p>
         <ul class="list-group">
           <% spendings.each do |spending| %>
             <li class="border-0 list-group-item">
