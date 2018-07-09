@@ -1,4 +1,6 @@
 <% provide(:heading, "New spending") %>
 <% provide(:dashboard, "hide") %>
 
+<%= link_to "back", root_path, class: "btn btn-link" %>
+
 <%= render 'form', spending: @spending %>
